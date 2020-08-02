@@ -1,0 +1,37 @@
+{
+   "kind":"ReplicationController",
+   "apiVersion":"v1",
+   "metadata":{
+      "name":"index",
+      "labels":{
+         "app":"index"
+      }
+   },
+   "spec":{
+      "replicas":1,
+      "selector":{
+         "app":"index"
+      },
+      "template":{
+         "metadata":{
+            "labels":{
+               "app":"index"
+            }
+         },
+         "spec":{
+            "containers":[
+               {
+                  "name":"index",
+                  "image":"n937431759388.dkr.ecr.us-east-2.amazonaws.com/cloud_devops_capstone:latest",
+                  "ports":[
+                     {
+                        "name":"http-server",
+                        "containerPort":30516
+                     }
+                  ]
+               }
+            ]
+         }
+      }
+   }
+}
