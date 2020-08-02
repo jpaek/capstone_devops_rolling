@@ -16,6 +16,7 @@ node {
     }
     stage('Create Service in Kubernetes') {
         withAWS(credentials:'eks_access', region:'us-east-2') {
+            sh "aws eks --region us-east-2 update-kubeconfig --name capstone"
             sh "kubectl apply -f ./controller.json"
             sh "kubectl apply -f ./service.json"
         }
