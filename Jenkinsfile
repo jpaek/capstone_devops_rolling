@@ -15,9 +15,9 @@ node {
         } 
     }
     stage('Create Service in Kubernetes') {
-        withAWS(credentials:'aws-static', region:'us-west-2') {
-            sh "kubectl apply -f ./green-controller.json"
-            sh "kubectl apply -f ./green-service.json"
+        withAWS(credentials:'eks_access', region:'us-west-2') {
+            sh "kubectl apply -f ./controller.json"
+            sh "kubectl apply -f ./service.json"
         }
     }
 }
