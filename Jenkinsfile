@@ -16,6 +16,7 @@ node {
     }
     stage('Create Service in Kubernetes') {
         withAWS(credentials:'eks_access', region:'us-west-2') {
+            sh "kubectl create namespace capstone"
             sh "kubectl apply -f ./controller.json"
             sh "kubectl apply -f ./service.json"
         }
