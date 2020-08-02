@@ -1,4 +1,7 @@
 node {
+    stage 'Checkout'
+    git url: 'https://github.com/jpaek/capstone_devops_rolling.git'
+
     stage('Lint') {
         sh 'tidy -q -e *.html'
     }
